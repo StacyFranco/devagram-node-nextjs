@@ -1,6 +1,6 @@
 import type {NextApiRequest,NextApiResponse} from 'next';
-
-export default(
+import {conectarMongoDB} from '../../middlewares/conectaMongoDB';
+const endpointLogin = (
     req : NextApiRequest,
     res : NextApiResponse
 ) =>{
@@ -9,9 +9,11 @@ export default(
 
         if(login === 'admin@admin.com' &&
             senha === 'Admin@123'){
-                res.status(200).json({ msg : 'Usuario autenticado com sucesso'});
+                return res.status(200).json({ msg : 'Usuario autenticado com sucesso'});
         }
         return res.status(400).json({erro : 'Usuário ou senha não encontrado'});
     }
     return res.status(405).json({erro : 'Método informado não é válido'});
 }
+
+export default conectarMongoDB (endpointLogin);
