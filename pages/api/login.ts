@@ -23,8 +23,8 @@ const endpointLogin = async (
         const usuarioEncontrados = await UsuarioModel.find({email: login,senha: md5(senha)});
         if(usuarioEncontrados && usuarioEncontrados.length > 0){
             const usuarioEncontrado = usuarioEncontrados[0]; 
-            
-            const token = jwt.sign({_id : usuarioEncontrado._id}, 'MINHA_CHAVE_JWT');
+            // ponto de exclamação no final é para informar garantidamente que a chave não é vazia se não da erro!
+            const token = jwt.sign({_id : usuarioEncontrado._id}, MINHA_CHAVE_JWT!);
             
             return res.status(200).json({
                 nome : usuarioEncontrado.nome,
