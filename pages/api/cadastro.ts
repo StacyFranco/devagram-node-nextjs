@@ -11,6 +11,9 @@ import nc from 'next-connect';
 const handler = nc()
     .use(upload.single('file'))
     .post(async (req: NextApiRequest, res: NextApiResponse<RespostaPadraoMsg>) => {
+
+       try{
+        console.log('cadastro endpoint',req.body)
         
         const usuario = req.body as CadastroRequisicao;
 
@@ -48,9 +51,14 @@ const handler = nc()
         await UsuarioModel.create(usuarioASerSalvo);
 
         return res.status(200).json({ msg: 'Usuario cadastrado com sucesso!' })
+       } catch(e){
+        console.log(e);
+        return res.status(500).json({ erro: 'Erro ao cadastrar usuario' })
+       }
 
     });
 
+    // Altera configuração dessa API para não converter em JSON o conteudo
     export const config = {
         api : {
             bodyParser : false
