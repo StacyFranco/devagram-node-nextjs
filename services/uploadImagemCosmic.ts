@@ -14,7 +14,7 @@ const storage = multer.memoryStorage();
 const upload = multer({storage : storage});
 
 const uploadImagemCosmic = async( req : any) => {
-   console.log('uploadImagemCosmic',req.body)
+   //console.log('uploadImagemCosmic',req.body)
     if(req?.file?.originalname){
         if(
         !req.file.originalname.includes(".png") &&
@@ -28,8 +28,8 @@ const uploadImagemCosmic = async( req : any) => {
             originalname : req.file.originalname,
             buffer : req.file.buffer
         };
-        console.log('uploadImagemCosmic url',req.url)
-        console.log('uploadImagemCosmic media_object',media_object)
+        //console.log('uploadImagemCosmic url',req.url)
+        //console.log('uploadImagemCosmic media_object',media_object)
 
 
         if(req.url && req.url.includes('publicacao')){
@@ -37,7 +37,7 @@ const uploadImagemCosmic = async( req : any) => {
                 media : media_object,
                 folder: "publicacoes",
             });
-        }else if(req.url && req.url.includes('cadastro')){
+        }else if(req.url && req.url.includes('cadastro')){// estava usuario na aula...
             return await bucketDevagram.media.insertOne({
                 media: media_object,
                 folder: "avatar",

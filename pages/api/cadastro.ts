@@ -13,7 +13,7 @@ const handler = nc()
     .post(async (req: NextApiRequest, res: NextApiResponse<RespostaPadraoMsg>) => {
 
        try{
-        console.log('cadastro endpoint',req.body)
+        //console.log('cadastro endpoint',req.body)
         
         const usuario = req.body as CadastroRequisicao;
 
