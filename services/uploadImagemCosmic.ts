@@ -37,7 +37,7 @@ const uploadImagemCosmic = async( req : any) => {
                 media : media_object,
                 folder: "publicacoes",
             });
-        }else if(req.url && req.url.includes('cadastro')){// estava usuario na aula...
+        }else if(req.url && (req.url.includes('cadastro'))|| req.url.includes('usuario')){// estava usuario na aula...
             return await bucketDevagram.media.insertOne({
                 media: media_object,
                 folder: "avatar",
