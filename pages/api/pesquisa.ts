@@ -3,6 +3,7 @@ import type { RespostaPadraoMsg } from "../../types/RespostaPadraoMsg";
 import { conectarMongoDB } from "../../middlewares/conectaMongoDB";
 import { validarTokenJWT } from "../../middlewares/validarTokenJWT";
 import { UsuarioModel } from "../../models/UsuarioModel";
+import { politicaCORS } from "../../middlewares/politicaCORS";
 
 const pesquisaEndpoint = async (req: NextApiRequest, res: NextApiResponse<RespostaPadraoMsg | any[]>) => {
     try {
@@ -37,4 +38,4 @@ const pesquisaEndpoint = async (req: NextApiRequest, res: NextApiResponse<Respos
         return res.status(500).json({ erro: 'Não foi possivel buscar usuarios' })
     }
 }
-export default validarTokenJWT(conectarMongoDB(pesquisaEndpoint));
+export default politicaCORS(validarTokenJWT(conectarMongoDB(pesquisaEndpoint)));

@@ -6,6 +6,7 @@ import { upload, uploadImagemCosmic } from '../../services/uploadImagemCosmic';
 import nc from 'next-connect';
 import { SeguidorModel } from "../../models/SeguidorModel";
 import { UsuarioModel } from "../../models/UsuarioModel";
+import { politicaCORS } from "../../middlewares/politicaCORS";
 
 const seguirEndpoint = async (req: NextApiRequest, res: NextApiResponse<RespostaPadraoMsg>) => {
     try {
@@ -58,4 +59,4 @@ const seguirEndpoint = async (req: NextApiRequest, res: NextApiResponse<Resposta
         return res.status(400).json({ erro: 'Não foi possivel seguir/deseguir usuario!' })
     }
 }
-export default validarTokenJWT(conectarMongoDB(seguirEndpoint))
+export default politicaCORS(validarTokenJWT(conectarMongoDB(seguirEndpoint)));

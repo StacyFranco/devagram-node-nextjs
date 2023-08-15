@@ -4,6 +4,7 @@ import { conectarMongoDB } from '../../middlewares/conectaMongoDB';
 import { validarTokenJWT } from '../../middlewares/validarTokenJWT';
 import { PublicacaoModel } from "../../models/PublicacaoModel";
 import { UsuarioModel } from "../../models/UsuarioModel";
+import { politicaCORS } from "../../middlewares/politicaCORS";
 
 const likeEndPoint = async (req: NextApiRequest, res: NextApiResponse<RespostaPadraoMsg | any>) => {
     try {
@@ -39,4 +40,4 @@ const likeEndPoint = async (req: NextApiRequest, res: NextApiResponse<RespostaPa
         return res.status(400).json({ erro: 'Ocorreu erro ao Curtir/Descurtir a publicação' })
     }
 }
-export default validarTokenJWT(conectarMongoDB(likeEndPoint))
+export default politicaCORS(validarTokenJWT(conectarMongoDB(likeEndPoint)))

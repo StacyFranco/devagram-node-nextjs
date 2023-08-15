@@ -6,6 +6,7 @@ import { UsuarioModel } from '../../models/UsuarioModel';
 import { PublicacaoModel } from '../../models/PublicacaoModel';
 import { SeguidorModel } from '../../models/SeguidorModel';
 import publicacao from './publicacao';
+import { politicaCORS } from '../../middlewares/politicaCORS';
 
 const feedEndpoint = async (req : NextApiRequest, res : NextApiResponse < RespostaPadraoMsg | any >) => {
     try{
@@ -68,4 +69,4 @@ const feedEndpoint = async (req : NextApiRequest, res : NextApiResponse < Respos
 }
 
 
-export default validarTokenJWT(conectarMongoDB(feedEndpoint))
+export default politicaCORS(validarTokenJWT(conectarMongoDB(feedEndpoint)))

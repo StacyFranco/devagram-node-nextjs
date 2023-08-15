@@ -6,7 +6,7 @@ import md5 from 'md5';
 import { conectarMongoDB } from '../../middlewares/conectaMongoDB';
 import { upload, uploadImagemCosmic } from '../../services/uploadImagemCosmic';
 import nc from 'next-connect';
-
+import { politicaCORS } from "../../middlewares/politicaCORS";
 
 const handler = nc()
     .use(upload.single('file'))
@@ -65,4 +65,4 @@ const handler = nc()
         }
     }
 
-export default conectarMongoDB(handler);
+export default politicaCORS(conectarMongoDB(handler));
