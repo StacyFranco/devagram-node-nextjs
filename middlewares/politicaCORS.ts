@@ -7,7 +7,7 @@ async( req: NextApiRequest, res : NextApiResponse<RespostaPadraoMsg>) =>{
     try{
         await NextCors(req,res,{
             origin : '*',
-            methods : ['PUT','POST','PUT'],
+            methods : ['PUT','POST','GET'],
             optionsSuccessStatus : 200, // alguns navegadores antigos tem problema quando se retorna 204
 
         });

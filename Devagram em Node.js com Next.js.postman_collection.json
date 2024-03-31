@@ -1,0 +1,533 @@
+{
+	"info": {
+		"_postman_id": "c1c60c46-a775-4502-9830-ca06f972be39",
+		"name": "Devagram em Node.js com Next.js",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23220593"
+	},
+	"item": [
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "Obter Dados Usuario Logado!",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tokemDevagram}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiURL}}/api/usuario",
+							"host": [
+								"{{apiURL}}"
+							],
+							"path": [
+								"api",
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualiza dados do Usuario logado",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tokemDevagram}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nome",
+									"value": "Admin2",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apiURL}}/api/usuario",
+							"host": [
+								"{{apiURL}}"
+							],
+							"path": [
+								"api",
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Publicação",
+			"item": [
+				{
+					"name": "Cria Publicação",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tokemDevagram}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "descricao",
+									"value": "meu post 2 devagram admin 2",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": ""
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apiURL}}/api/publicacao",
+							"host": [
+								"{{apiURL}}"
+							],
+							"path": [
+								"api",
+								"publicacao"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "feed",
+			"item": [
+				{
+					"name": "Captura Feed do Usuario especifico",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tokemDevagram}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiURL}}/api/feed?id=64da3c1501035bcce3ddf4b1",
+							"host": [
+								"{{apiURL}}"
+							],
+							"path": [
+								"api",
+								"feed"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "64d6796496e47d1999808631",
+									"disabled": true
+								},
+								{
+									"key": "id",
+									"value": "64da3c1501035bcce3ddf4b1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "feed home",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tokemDevagram}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiURL}}/api/feed",
+							"host": [
+								"{{apiURL}}"
+							],
+							"path": [
+								"api",
+								"feed"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pesquisa",
+			"item": [
+				{
+					"name": "Pesquisa por nome",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tokemDevagram}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiURL}}/api/pesquisa?filtro=ad",
+							"host": [
+								"{{apiURL}}"
+							],
+							"path": [
+								"api",
+								"pesquisa"
+							],
+							"query": [
+								{
+									"key": "filtro",
+									"value": "ad"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pesquisa por id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tokemDevagram}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiURL}}/api/pesquisa?id=64da3c1501035bcce3ddf4b1",
+							"host": [
+								"{{apiURL}}"
+							],
+							"path": [
+								"api",
+								"pesquisa"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "64da3c1501035bcce3ddf4b1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Like/Deslike",
+			"item": [
+				{
+					"name": "like/deslike",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tokemDevagram}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{apiURL}}/api/like?id=64d6997996e47d1999808640",
+							"host": [
+								"{{apiURL}}"
+							],
+							"path": [
+								"api",
+								"like"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "64d6997996e47d1999808640"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Segui/Desseguir",
+			"item": [
+				{
+					"name": "Seguir/Deseguir",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tokemDevagram}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{apiURL}}/api/seguir?id=64d6796496e47d1999808631",
+							"host": [
+								"{{apiURL}}"
+							],
+							"path": [
+								"api",
+								"seguir"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "64d6796496e47d1999808631"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comentario",
+			"item": [
+				{
+					"name": "adicionar comentario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tokemDevagram}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"comentario\" : \"Bonita foto 2!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{apiURL}}/api/comentario?id=64dacde4ffb080fb9b1ebb05",
+							"host": [
+								"{{apiURL}}"
+							],
+							"path": [
+								"api",
+								"comentario"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "64dacde4ffb080fb9b1ebb05"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"pm.collectionVariables.set('tokemDevagram',jsonData.token);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"admin2@admin.com\",\r\n    \"senha\": \"4321\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{apiURL}}/api/login",
+					"host": [
+						"{{apiURL}}"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastro Usuario form data",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nome",
+							"value": "Admin3",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "admin3@admin.com",
+							"type": "text"
+						},
+						{
+							"key": "senha",
+							"value": "5678",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": []
+						}
+					]
+				},
+				"url": {
+					"raw": "{{apiURL}}/api/cadastro",
+					"host": [
+						"{{apiURL}}"
+					],
+					"path": [
+						"api",
+						"cadastro"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "tokemDevagram",
+			"value": ""
+		},
+		{
+			"key": "apiURL",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}
