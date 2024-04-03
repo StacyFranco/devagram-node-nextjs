@@ -1,5 +1,5 @@
 # Devagram Back API
-Projeto desenvolvido para apresentação do react.js e next na formação Devaria 2023. Este projeto é baseado no Instagram, tendo as funcionalidades:
+Projeto desenvolvido para apresentação do node.js e next na formação Devaria 2023. Este projeto é baseado no Instagram, tendo as funcionalidades:
 - criar conta
 - curtir
 - seguir
@@ -12,7 +12,6 @@ Exemplo em funcionamento (com o Front End): https://devagram-react-nextjs-stacyf
 Para testes da API pode usar esta [Collection do Postman](https://github.com/StacyFranco/devagram-node-nextjs/blob/main/Devagram%20em%20Node.js%20com%20Next.js.postman_collection.json)!
 
 ### Tecnologias Utilizadas
-- React.js 18.2.0
 - Next.js 12.2.5
 - Node.js 18.16.0
 - @cosmicjs/sdk  1.0.9
